@@ -1,0 +1,42 @@
+[
+    {
+        "command": "/home/moonraccoon/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-as -o .pio/build/genericSTM32F411CE/FrameworkCMSIS/gcc/startup_stm32f411xe.o /home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Source/Templates/gcc/startup_stm32f411xe.S",
+        "directory": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp",
+        "file": "/home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Source/Templates/gcc/startup_stm32f411xe.S"
+    },
+    {
+        "command": "/home/moonraccoon/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc -o .pio/build/genericSTM32F411CE/FrameworkCMSIS/system_stm32f4xx.o -c -Os -ffunction-sections -fdata-sections -Wall -mthumb -mcpu=cortex-m4 -DPLATFORMIO=60002 -DSTM32F411xE -DSTM32F4xx -DF_CPU=100000000L -I/home/moonraccoon/.platformio/packages/framework-cmsis/CMSIS/Include -I/home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Include /home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Source/Templates/system_stm32f4xx.c",
+        "directory": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp",
+        "file": "/home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Source/Templates/system_stm32f4xx.c"
+    },
+    {
+        "command": "/home/moonraccoon/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-g++ -o .pio/build/genericSTM32F411CE/src/field.o -c -fno-rtti -fno-exceptions -Os -ffunction-sections -fdata-sections -Wall -mthumb -mcpu=cortex-m4 -DPLATFORMIO=60002 -DSTM32F411xE -DSTM32F4xx -DF_CPU=100000000L -Iinclude -Isrc -I/home/moonraccoon/.platformio/packages/framework-cmsis/CMSIS/Include -I/home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Include src/field.cpp",
+        "directory": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp",
+        "file": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp/src/field.cpp"
+    },
+    {
+        "command": "/home/moonraccoon/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-g++ -o .pio/build/genericSTM32F411CE/src/main.o -c -fno-rtti -fno-exceptions -Os -ffunction-sections -fdata-sections -Wall -mthumb -mcpu=cortex-m4 -DPLATFORMIO=60002 -DSTM32F411xE -DSTM32F4xx -DF_CPU=100000000L -Iinclude -Isrc -I/home/moonraccoon/.platformio/packages/framework-cmsis/CMSIS/Include -I/home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Include src/main.cpp",
+        "directory": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp",
+        "file": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp/src/main.cpp"
+    },
+    {
+        "command": "/home/moonraccoon/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-g++ -o .pio/build/genericSTM32F411CE/src/pin.o -c -fno-rtti -fno-exceptions -Os -ffunction-sections -fdata-sections -Wall -mthumb -mcpu=cortex-m4 -DPLATFORMIO=60002 -DSTM32F411xE -DSTM32F4xx -DF_CPU=100000000L -Iinclude -Isrc -I/home/moonraccoon/.platformio/packages/framework-cmsis/CMSIS/Include -I/home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Include src/pin.cpp",
+        "directory": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp",
+        "file": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp/src/pin.cpp"
+    },
+    {
+        "command": "/home/moonraccoon/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-g++ -o .pio/build/genericSTM32F411CE/src/port.o -c -fno-rtti -fno-exceptions -Os -ffunction-sections -fdata-sections -Wall -mthumb -mcpu=cortex-m4 -DPLATFORMIO=60002 -DSTM32F411xE -DSTM32F4xx -DF_CPU=100000000L -Iinclude -Isrc -I/home/moonraccoon/.platformio/packages/framework-cmsis/CMSIS/Include -I/home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Include src/port.cpp",
+        "directory": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp",
+        "file": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp/src/port.cpp"
+    },
+    {
+        "command": "/home/moonraccoon/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-g++ -o .pio/build/genericSTM32F411CE/src/registers.o -c -fno-rtti -fno-exceptions -Os -ffunction-sections -fdata-sections -Wall -mthumb -mcpu=cortex-m4 -DPLATFORMIO=60002 -DSTM32F411xE -DSTM32F4xx -DF_CPU=100000000L -Iinclude -Isrc -I/home/moonraccoon/.platformio/packages/framework-cmsis/CMSIS/Include -I/home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Include src/registers.cpp",
+        "directory": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp",
+        "file": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp/src/registers.cpp"
+    },
+    {
+        "command": "/home/moonraccoon/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-g++ -o .pio/build/genericSTM32F411CE/src/stm32f4.o -c -fno-rtti -fno-exceptions -Os -ffunction-sections -fdata-sections -Wall -mthumb -mcpu=cortex-m4 -DPLATFORMIO=60002 -DSTM32F411xE -DSTM32F4xx -DF_CPU=100000000L -Iinclude -Isrc -I/home/moonraccoon/.platformio/packages/framework-cmsis/CMSIS/Include -I/home/moonraccoon/.platformio/packages/framework-cmsis-stm32f4/Include src/stm32f4.cpp",
+        "directory": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp",
+        "file": "/home/moonraccoon/Documents/Dev/ARM/libstm32f4-cpp/src/stm32f4.cpp"
+    }
+]

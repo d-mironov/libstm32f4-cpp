@@ -6,7 +6,7 @@ It's a work in progress and is just me learning new ways to code in Embedded Sys
 ### Planned features
 - [ ] Change project to pure Makefile project
 - [ ] Add more features to the svd2cpp converter
-- [x] Add easy to user Hardware Abstraction
+- [x] Add easy to use Hardware Abstraction
 - [x] Add GPIO
 - [ ] Add UART
 - [ ] Add I2C

@@ -1,18 +1,26 @@
-#include "port.h"
-#include "registers.h"
 #include <cstdint>
+
+#include "./port.h"
+#include "./registers.h"
 
 using namespace stm32f4::regs;
 
-template<_gpio& P>
-Pin<P>& Port<P>::operator[](uint8_t _pin) {
+template <_gpio& P>
+Pin<P>& Port<P>::operator[](u8 _pin) {
     if (_pin > PINS_PER_PORT - 1) {
-        return pins[15];
+        return pins[PINS_PER_PORT - 1];
     }
     return pins[_pin];
 }
 
-template<stm32f4::regs::_gpio& P>
+template <stm32f4::regs::_gpio& P>
+void Port<P>::write_all(stm32f4::pin::write w) {
+    for (Pin<P>& pin : pins) {
+        pin.write(w);
+    }
+}
+
+template <stm32f4::regs::_gpio& P>
 void Port<P>::enable_clock() {
     switch (P.base_address) {
         case GPIOA_BASE_ADDRESS:

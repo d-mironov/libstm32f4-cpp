@@ -1,28 +1,33 @@
 #pragma once
 
-#include <cstdint>
-#include <array>
 #include <registers.h>
-#include "pin.h"
+
+#include <array>
+#include <cstdint>
+
+#include "./pin.h"
 
 #define PINS_PER_PORT 16
 
+using stm32f4::regs::_gpio;
 
-template<stm32f4::regs::_gpio& P>
+template <_gpio& P>
 class Port {
- private:
-    stm32f4::regs::_gpio& port = P;
+   private:
+    _gpio& port = P;
     std::array<Pin<P>, PINS_PER_PORT> pins;
 
- public:
+   public:
     Port() {
-        for (uint8_t i = 0; i < PINS_PER_PORT; ++i) {
+        for (u8 i = 0; i < PINS_PER_PORT; ++i) {
             pins[i] = Pin<P>(i);
         }
     }
 
-    Pin<P>& operator[](uint8_t _pin);
-    
+    Pin<P>& operator[](u8 _pin);
+
+    void write_all(stm32f4::pin::write w);
+
     void enable_clock();
     void disable_clock();
 };

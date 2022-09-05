@@ -1,15 +1,16 @@
-#include "port.h"
-#include "stm32f411xe.h"
-#include "registers.h"
-#include "stm32f4.h"
-#include <cstdint>
-#include "pin.h"
+// Copyright [2022] Daniel Mironow
+#include "./pin.h"
+#include "./port.h"
+#include "./registers.h"
+#include "./stm32f4.h"
+#include "./stm32f411xe.h"
 
-using namespace stm32f4;
+using stm32f4::peripheral;
 
 void undef_delay() {
     volatile int i = 0;
-    for (i = 0; i < 100000; ++i);
+    for (i = 0; i < 100000; ++i) {
+    }
 }
 
 int main(void) {

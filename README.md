@@ -3,6 +3,27 @@
 This is a simple port of my HAL written in C, to learn and use C++ more frequently.
 It's a work in progress and is just me learning new ways to code in Embedded Systems.
 
+### Planned features
+- [ ] Change project to pure Makefile project
+- [ ] Add more features to the svd2cpp converter
+- [x] Add GPIO
+- [ ] Add UART
+- [ ] Add I2C
+- [ ] Add SPI
+- [ ] Add Timers
+- [ ] Add ADC
+- [ ] Add EXTI
+- [ ] Add RCC configuration
+- [ ] Add PWR configuration
+- [ ] Add DMA
+
+Since this is a "work in progress" and I have alot of other projects I will add new features 
+once I have the time to do so.  
+This kind of HAL is also available in C, so make sure to look at [libstm32f4](https://github.com/moonxraccoon/libstm32f4), where 
+I have alot more peripherals already implemented.
+
+---
+
 ### Example Usage
 Simple GPIO usage example: 
 ```cpp
@@ -53,14 +74,12 @@ while (true) {
 }
 ```
 
-For now only GPIO works, but I will implement other examples as soon as I have more time to do it.
-
 ### Contact/Contribution
 
 Hit me up if you want to talk about the project or contribute.
 
-E-Mail: [moonxraccoon@proton.me](mailto:moonxraccoon@proton.me)  
-Discord: moonraccoon#1337
+E-Mail: [moonxraccoon@protonmail.com](mailto:moonxraccoon@protonmail.com)  
+Discord: moonraccoon#4788
 
 
 

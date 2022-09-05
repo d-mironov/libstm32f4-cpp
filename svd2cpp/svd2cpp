@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+"""
+Copyright (c)<2022> Daniel Mironow
+
+Simple script to create a .h and .cpp file for my register abstraction class
+"""
+from cmsis_svd.parser import SVDParser
+import sys
+
+if len(sys.argv) != 3:
+    print("Usage:\n")
+    print("\t./svd-to-reg <manufacturer> <device>")
+    exit(1)
+
+manufacturer: str = sys.argv[1]
+device: str = sys.argv[2]
+
+try:
+    parser = SVDParser.for_packaged_svd(manufacturer, device + ".svd")
+except FileNotFoundError:
+    print("SVD file not found.")
+    print("Check included files on " +
+          "https://github.com/posborne/cmsis-svd/tree/master/data")
+    print("\nUsage:\n")
+    print("\t./svd-to-reg <manufacturer> <device>")
+    exit(1)
+
+peripherals: list[str] = ["GPIO", "ADC", "USART", "DMA", "SPI", "I2C"]
+used: list[str] = []
+
+with open("stm32f411.h", "w") as header, open("stm32f411.cpp", "w") as source:
+    # add includes to source file
+    source.write('#include "register.h"\n')
+    source.write('#include "stm32f411.h"\n\n')
+    # add includes to header file
+    header.write("#pragma once\n")
+    header.write('#include "register.h"\n\n')
+
+    for peripheral in parser.get_device().peripherals:
+        header.write("#define %s_BASE_ADDRESS 0x%08x\n" % (
+            peripheral.name,
+            peripheral.base_address
+            )
+        )
+
+    header.write("namespace stm32f4 {\n")
+    header.write("\tnamespace regs {\n")
+    # iterate through all perioperals
+    for peripheral in parser.get_device().peripherals:
+        name = peripheral.name
+        name_wo_last = name[:len(name) - 1]
+        if name_wo_last in peripherals:
+            # Creating the struct
+            if name_wo_last not in used:
+                used.append(name_wo_last)
+                header.write("\t\tstruct _%s {\n" %
+                             name.lower()[:len(name) - 1])
+                header.write("\t\t\tuint32_t base_address;\n")
+                for reg in peripheral.registers:
+                    # reg.name, reg.address_offset
+                    header.write("\t\t\tField<32> %s;\n" % reg.name)
+                header.write("\t\t};\n")
+            header.write("\t\textern struct stm32f4::regs::_%s %s;\n" % (
+                name.lower()[:len(peripheral.name) - 1], name.lower()
+                )
+            )
+            source.write("stm32f4::regs::_%s stm32f4::regs::%s = {\n" % (
+                         name_wo_last.lower(),
+                         name.lower()))
+        else:
+            header.write("\t\tstruct _%s {\n" % name.lower())
+            header.write("\t\t\tuint32_t base_address;\n")
+            for reg in peripheral.registers:
+                # reg.name, reg.address_offset
+                header.write("\t\t\tField<32> %s;\n" % reg.name)
+            header.write("\t\t};\n")
+            header.write("\t\textern struct stm32f4::regs::_%s %s;\n" % (
+                name.lower(), name.lower()
+                )
+            )
+            source.write("stm32f4::regs::_%s stm32f4::regs::%s = {\n" % (
+                peripheral.name.lower(),
+                peripheral.name.lower()
+                )
+            )
+        source.write("\t.base_address = 0x%08x,\n" % peripheral.base_address)
+        for reg in peripheral.registers:
+            source.write("\t.%s = Field<32>(0x%08x),\n" % (
+                reg.name,
+                peripheral.base_address + reg.address_offset)
+            )
+        source.write("};\n")
+    header.write("\t};\n")
+    header.write("};")
+print("[+] Done")

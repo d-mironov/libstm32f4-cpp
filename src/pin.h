@@ -8,6 +8,9 @@
 #include "./stm32f4xx.h"
 #include "./types.h"
 
+#define LOW 0
+#define HIGH 1
+
 namespace stm32f4 {
 namespace pin {
 enum otype {

@@ -13,11 +13,11 @@ using stm32f4::regs::_gpio;
 
 template <_gpio& P>
 class Port {
-   private:
+private:
     _gpio& port = P;
     std::array<Pin<P>, PINS_PER_PORT> pins;
 
-   public:
+public:
     Port() {
         for (u8 i = 0; i < PINS_PER_PORT; ++i) {
             pins[i] = Pin<P>(i);

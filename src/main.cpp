@@ -3,9 +3,8 @@
 #include "./port.h"
 #include "./registers.h"
 #include "./stm32f4.h"
-#include "./stm32f411xe.h"
 
-using stm32f4::peripheral;
+using stm32f4::Peripheral;
 
 void undef_delay() {
     volatile int i = 0;
@@ -14,7 +13,7 @@ void undef_delay() {
 }
 
 int main(void) {
-    peripheral periph = peripheral::get_instance();
+    Peripheral periph = Peripheral::get_instance();
     // Enable clock for GPIOA and GPIOB
     periph.PA.enable_clock();
     periph.PB.enable_clock();
@@ -22,6 +21,7 @@ int main(void) {
     periph.PA[8].make_output();
     periph.PB[8].make_output();
     periph.PA[9].make_output();
+
 
     // Pull PB8 high
     periph.PB[8] = 1;
